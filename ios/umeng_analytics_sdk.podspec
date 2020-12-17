@@ -19,6 +19,9 @@ A new flutter plugin project.
   s.dependency 'UMCCommon'
 #  s.dependency 'UMCAnalytics'
   s.dependency 'UMCCommonLog'
+  
+  s.static_framework = true
+
   s.platform = :ios, '8.0'
 
   # Flutter.framework does not contain a i386 slice.
