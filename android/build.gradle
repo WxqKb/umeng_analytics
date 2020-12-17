@@ -1,0 +1,41 @@
+group 'com.xiamijun.umeng_analytics_sdk'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    // 友盟统计SDK
+    implementation  'com.umeng.umsdk:common:9.3.3' // 版本号(必选)
+    implementation  'com.umeng.umsdk:asms:1.1.4' // asms包依赖(必选)
+}
