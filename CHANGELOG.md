@@ -1,3 +1,6 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* 实现友盟统计SDK集成。
+
+## 0.0.2
+* 修复错误
