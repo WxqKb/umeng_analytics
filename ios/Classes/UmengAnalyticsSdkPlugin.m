@@ -66,7 +66,11 @@
     NSString *eventId = args[@"eventId"];
     NSString *label = args[@"label"];
     NSDictionary *attributes = args[@"attributes"];
-    int counter = [args[@"counter"] intValue];
+    int counter = 0;
+    
+    if ([args objectForKey:@"counter"] && ![[args objectForKey:@"counter"] isEqual:[NSNull null]]) {
+        counter = [args[@"counter"] intValue];
+    }
     
     if (attributes != nil) {
         [MobClick event:eventId attributes:attributes counter:counter];

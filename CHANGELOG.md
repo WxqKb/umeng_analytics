@@ -7,3 +7,6 @@
 
 ## 0.0.3
 * 修复"The 'Pods-App' target has transitive dependencies that include static binaries:"错误问题。
+
+## 0.1.0
+* 修复参错为空引起的报错问题。

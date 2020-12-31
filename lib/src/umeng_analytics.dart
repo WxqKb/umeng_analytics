@@ -70,7 +70,7 @@ class UmengAnalytics {
 
     final params = <String, dynamic>{
       'pageName': pageName,
-      'seconds': seconds,
+      'seconds': seconds ?? 0,
     };
     return _channel.invokeMethod<void>('logPage', params);
   }
@@ -85,7 +85,7 @@ class UmengAnalytics {
     String eventId, {
     String label,
     Map attributes,
-    int counter,
+    int counter = 0,
   }) async {
     assert(eventId != null);
     final params = <String, dynamic>{
