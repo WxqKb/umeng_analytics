@@ -65,14 +65,14 @@
     NSDictionary *args = call.arguments;
     NSString *eventId = args[@"eventId"];
     NSString *label = args[@"label"];
-    NSDictionary *attributes = args[@"attributes"];
+    NSDictionary *attributes = [args objectForKey:@"attributes"];
     int counter = 0;
     
     if ([args objectForKey:@"counter"] && ![[args objectForKey:@"counter"] isEqual:[NSNull null]]) {
         counter = [args[@"counter"] intValue];
     }
     
-    if (attributes != nil) {
+    if (attributes != nil && ![attributes isEqual:[NSNull null]]) {
         [MobClick event:eventId attributes:attributes counter:counter];
     } else {
         [MobClick event:eventId label:label];
