@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlatButton(
+            TextButton(
               onPressed: () async {
                 Navigator.of(context).pushNamed('/get_device_info');
               },

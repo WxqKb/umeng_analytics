@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 class UmengAnalytics {
@@ -14,19 +13,13 @@ class UmengAnalytics {
   /// [encryptEnable] 设置是否对统计信息进行加密传输。默认为false，设置为true，SDK会将日志信息做加密处理。
   /// [autoPageEnable] 设置页面统计采集方式。默认为false（手动模式）。
   static Future<void> init({
-    @required String iOSKey,
-    @required String androidKey,
-    String channel,
+    required String iOSKey,
+    required String androidKey,
+    String? channel,
     bool logEnable = false,
     bool encryptEnable = false,
     bool autoPageEnable = false,
   }) async {
-    assert(iOSKey != null);
-    assert(androidKey != null);
-    assert(logEnable != null);
-    assert(encryptEnable != null);
-    assert(autoPageEnable != null);
-
     final Map<String, dynamic> params = {
       'iOSKey': iOSKey,
       'androidKey': androidKey,
@@ -40,7 +33,7 @@ class UmengAnalytics {
   }
 
   /// 获取集成测试需要的device_id
-  static Future<String> deviceIDForIntegration() async {
+  static Future<String?> deviceIDForIntegration() async {
     return _channel.invokeMethod<String>('deviceIDForIntegration');
   }
 
@@ -48,7 +41,6 @@ class UmengAnalytics {
   ///
   /// 在页面展示时调用该方法
   static Future<void> onPageStart(String pageName) async {
-    assert(pageName != null);
     return _channel.invokeMethod<void>('onPageStart', pageName);
   }
 
@@ -56,7 +48,6 @@ class UmengAnalytics {
   ///
   /// 在页面退出时调用该方法
   static Future<void> onPageEnd(String pageName) async {
-    assert(pageName != null);
     return _channel.invokeMethod<void>('onPageEnd', pageName);
   }
 
@@ -65,12 +56,9 @@ class UmengAnalytics {
   /// [pageName] 统计的页面名称
   /// [seconds] 时长，单位为秒
   static Future<void> logPage(String pageName, int seconds) async {
-    assert(pageName != null);
-    assert(seconds != null);
-
     final params = <String, dynamic>{
       'pageName': pageName,
-      'seconds': seconds ?? 0,
+      'seconds': seconds,
     };
     return _channel.invokeMethod<void>('logPage', params);
   }
@@ -83,11 +71,10 @@ class UmengAnalytics {
   /// [counter] 自定义数值
   static Future<void> event(
     String eventId, {
-    String label,
-    Map attributes,
+    String? label,
+    Map? attributes,
     int counter = 0,
   }) async {
-    assert(eventId != null);
     final params = <String, dynamic>{
       'eventId': eventId,
       'label': label,

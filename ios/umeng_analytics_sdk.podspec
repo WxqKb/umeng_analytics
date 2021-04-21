@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'umeng_analytics_sdk'
-  s.version          = '0.1.1'
+  s.version          = '1.0.0'
   s.summary          = 'A new flutter plugin project.'
   s.description      = <<-DESC
 A new flutter plugin project.
