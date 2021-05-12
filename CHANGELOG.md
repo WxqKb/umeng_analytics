@@ -1,3 +1,6 @@
+## 1.1.0
+* 修复Android端最新版迁移至maven center引起的报错问题。更新SDK至最新版。
+
 ## 1.0.0
 * Migrate to null safety.
 
