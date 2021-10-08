@@ -3,6 +3,12 @@
 #import <UMCommon/MobClick.h>
 #import <UMCommonLog/UMCommonLogHeaders.h>
 
+@interface UmengAnalyticsSdkPlugin()
+
+@property (nonatomic, assign) bool initialized;
+
+@end
+
 @implementation UmengAnalyticsSdkPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
     FlutterMethodChannel* channel = [FlutterMethodChannel
@@ -12,18 +18,31 @@
     [registrar addMethodCallDelegate:instance channel:channel];
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        _initialized = false;
+    }
+    return self;
+}
+
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
     if ([@"init" isEqualToString:call.method]) {
         [self init:call result:result];
+        self.initialized = true;
     } else if ([@"deviceIDForIntegration" isEqualToString:call.method]) {
+        if (!_initialized) return;
         [self deviceIDForIntegration:call result:result];
     } else if ([@"onPageStart" isEqualToString:call.method]) {
+        if (!_initialized) return;
         [self onPageStart:call result:result];
     } else if ([@"onPageEnd" isEqualToString:call.method]) {
+        if (!_initialized) return;
         [self onPageEnd:call result:result];
     } else if ([@"logPage" isEqualToString:call.method]) {
+        if (!_initialized) return;
         [self logPage:call result:result];
     } else if ([@"event" isEqualToString:call.method]) {
+        if (!_initialized) return;
         [self event:call result:result];
     } else {
         result(FlutterMethodNotImplemented);

@@ -2,7 +2,7 @@ PODS:
   - Flutter (1.0.0)
   - UMCCommon (7.2.4)
   - UMCCommonLog (2.0.0)
-  - umeng_analytics_sdk (0.0.1):
+  - umeng_analytics_sdk (1.0.0):
     - Flutter
     - UMCCommon
     - UMCCommonLog
@@ -23,11 +23,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/umeng_analytics_sdk/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   UMCCommon: a63a8b55331af31872a7bf17908ce47f48973c7f
   UMCCommonLog: 9b7ddde5d14a52fc1986ba5ac3121b8b2f433638
-  umeng_analytics_sdk: 707de1490fa9648d7b8b211447335833ab3075ce
+  umeng_analytics_sdk: 36d251f71bb77a37591f0236adefc5cc86a43057
 
 PODFILE CHECKSUM: 3aaee2e660a2a825e7c3beecb0e4a334b934f851
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.2
